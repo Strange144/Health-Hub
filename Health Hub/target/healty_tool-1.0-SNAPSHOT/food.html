@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #333232;
+        }
+
+        h1 {
+            background-color: black;
+            color: #cc5500;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        #more{
+            margin: 10px;
+        }
+        .f {
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 3px;
+            border-width: 2px;
+            border-color: white;
+            border-style: double;
+            color: white;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        .side-by-side {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            background-color: #cc5500;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Hide search section by default */
+        #searchSection {
+            display: none;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="trucate.html" style="text-decoration: none;"><h1>Food Tracker</h1></a>
+    <div class="f">
+        <form id="foodForm" action="food.java">
+            <label for="foodName">Food Name:</label>
+            <input type="text" id="foodName" name="foodName" required>
+            
+            <label for="foodName">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+            
+            <button type="submit"value="b1" name="b1">search</button>
+            <button type="submit" >Calculate total macros</button>
+
+            <div id="foodList">
+                <!-- Food entries will be displayed here -->
+            </div>
+        </form>
+
+        <button id="more" type="button">Add More Food</button>
+
+ 
+
+        </div>
+    </div>
+        <script>
+        document.getElementById('more').addEventListener('click', function() {
+            // Redirect to another page
+            window.location.href = 'insertfood.html';
+        });
+    </script>
+</body>
+
+</html>

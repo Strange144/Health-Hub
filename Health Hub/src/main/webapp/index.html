@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Progress Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #333232;
+        }
+
+        h1 {
+            background-color: black;
+            color: #cc5500;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .f {
+    max-width: 400px;
+    margin: auto; /* Center the form horizontally */
+    padding: 30px;
+    border-radius: 3px;
+    border-width: 2px;
+    border-color: white;
+    border-style: double;
+    color: white;
+}
+
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        .side-by-side {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            background-color: #cc5500;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Hide search section by default */
+        #searchSection {
+            display: none;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+     <a href="home.html" style="text-decoration: none;">
+    <h1  align="center">Progress Tracker</h1>
+  </a>
+    <div class="f">
+        <form id="gymProgressForm" action="store.java" onsubmit="showSearchSection();">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="workoutDate">Workout Date:</label>
+            <input type="date" id="workoutDate" name="workoutDate" required>
+
+            <label for="exerciseType">Exercise Type:</label>
+            <input type="text" id="exerciseType" name="exerciseType" required>
+
+            <label for="sets">Sets:</label>
+            <input type="number" id="sets" name="sets" min="1" required>
+
+            <div class="side-by-side">
+                <div>
+                    <label for="rep1">Reps in Set 1:</label>
+                    <input type="number" id="rep1" name="rep1">
+                </div>
+                <div>
+                    <label for="weight1">Weight in Set 1:</label>
+                    <input type="number" id="weight1" name="weight1">
+                </div>
+            </div>
+
+            <div class="side-by-side">
+                <div>
+                    <label for="rep2">Reps in Set 2:</label>
+                    <input type="number" id="rep2" name="rep2">
+                </div>
+                <div>
+                    <label for="weight2">Weight in Set 2:</label>
+                    <input type="number" id="weight2" name="weight2">
+                </div>
+            </div>
+
+            <div class="side-by-side">
+                <div>
+                    <label for="rep3">Reps in Set 3:</label>
+                    <input type="number" id="rep3" name="rep3">
+                </div>
+                <div>
+                    <label for="weight3">Weight in Set 3:</label>
+                    <input type="number" id="weight3" name="weight3">
+                </div>
+            </div>
+            <button type="submit" name="button1" value="b1">Submit</button>
+            <!-- Add more sets as needed -->
+
+            <!-- Search section -->
+            <div id="searchSection">
+                
+                <label for="searchDate">Search Date:</label>
+                <input type="date" id="searchDate" name="searchDate">
+                <label for="searchname">Search Name :</label>
+                <input type="text" id="searchname" name="searchname">
+                <button type="submit" name="buttons2" value="b2">Search</button>
+            </div>
+
+            
+        </form>
+    </div>
+
+    <script>
+        function showSearchSection() {
+            const searchSection = document.getElementById('searchSection');
+            searchSection.style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>

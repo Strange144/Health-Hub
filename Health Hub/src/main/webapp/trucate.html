@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exit Confirmation</title>
+    <style>
+        body {
+            background-color: rgb(51, 50, 50);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        div {
+            text-align: center;
+            border: 2px solid white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #cc5500;
+        }
+
+        p {
+            color: white;
+        }
+
+        button {
+            background-color: #cc5500;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 95%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #cc3500;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Are you sure you want to exit Food Tracker?</h2>
+        <p>Clicking 'Yes' will remove the diet you have created.</p>
+        <form action="trucate.java">
+            <button type="submit">Yes</button>
+        </form>
+        <button onclick="goBack()">NO</button>
+        
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

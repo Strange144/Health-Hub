@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+          body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: rgb(51, 50, 50);
+  color: white;
+}
+form {
+  margin-left: 60px;
+  padding-left: 60px;
+  border-radius: 3px;
+  border-width: 2px;
+  border-color: white;
+  border-style: double;
+  margin-right: 1100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#cal {
+  margin-left: 50px;
+}
+.im {
+  float: right;
+  width: 300px;
+  padding-right: 300px;
+}
+
+table,
+th,
+td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+.pi {
+  padding-left: 60px;
+}
+
+      </style>
+    <link rel="stylesheet" href="mystylebmi.css">
+    <title>BMI calculator</title>
+  </head>
+  <body>
+    <a href="home.html" style="text-decoration: none;"><h1 align="center" style="background-color: black; color:  #cc5500;">BMI calculator</h1> </a>
+    <div class="im">
+        <h2>BMI chart</h2>
+    <img src="Screenshot 2023-07-29 223157.png" width="500px"></div>
+    <form>
+
+      <label>Age&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input id="age" type="textbox" name="Age" /><br />
+    gender :- <label for="male">male</label>
+    <input type="radio" id="male" name="fav_language" value="male" />
+    <label for="male">female</label>
+    <input
+      type="radio"
+      id="female"
+      name="fav_language"
+      value="female"
+    /><br />
+    <label >height</label>
+    <input id="height" type="textbox" name="height" placeholder="cm" /><br />
+    <label>weight</label>
+    <input id="weight" type="textbox" name="weight" placeholder="kgs" /><br />
+    <input type="button" id="cal" onclick="calculateBMI()" value="calculate">
+    <p id="result">result: </p></form>
+    <div class="pi">
+<p>The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding <br>
+  weight status while taking age into consideration. Use the "Metric Units" tab for the International<br> 
+  System of Units or the "Other Units" tab to convert units into either US or metric units. Note that<br>
+   the calculator also computes the Ponderal Index in addition to BMI, both of which are discussed below in detail.</p>
+    <h2>BMI introduction</h2>
+    <p>BMI is a measurement of a person's leanness or corpulence based on their height and weight, and is intended <br>
+      to quantify tissue mass. It is widely used as a general indicator of whether a person has a healthy body weight<br>
+       for their height. Specifically, the value obtained from the calculation of BMI is used to categorize whether<br>
+        a person is underweight, normal weight, overweight, or obese depending on what range the value falls between. <br>
+        These ranges of BMI vary based on factors such as region and age, and are sometimes further divided into<br>
+         subcategories such as severely underweight or very severely obese. Being overweight or underweight can have<br>
+          significant health effects, so while BMI is an imperfect measure of healthy body weight, it is a useful indicator<br>
+           of whether any additional testing or action is required. Refer to the table below to see the different <br>
+           categories based on BMI that are used by the calculator.</p>
+
+  <h2>BMI table</h2>
+  <table style="border: 2px;"">
+    <tr>
+      <th>classification</th>
+      <th>BMI range - kg/m2</th>
+    </tr>
+    <tr>
+      <td>Severe Thinness</td>
+      <td>less than 16</td>
+    </tr>
+    <tr>
+      <td>Moderate Thinness</td>
+      <td>16 - 17</td>
+    </tr>
+    <tr>
+      <td>Mild Thinness</td>
+      <td>17 - 18.5</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>18.5 - 25</td>
+    </tr>
+    <tr>
+      <td>Overweight</td>
+      <td>25 - 30</td>
+    </tr>
+    <tr>
+      <td>Obese Class I</td>
+      <td>30 - 35</td>
+    </tr>
+    <tr>
+      <td>Obese Class II</td>
+      <td>35 - 40</td>
+    </tr>
+    <tr>
+      <td>Obese Class III</td>
+      <td>greater than 40</td>
+    </tr>
+  </table>
+    </div>
+    <script>
+      function calculateBMI() {
+        const height = parseFloat(document.getElementById("height").value);
+        const weight = parseFloat(document.getElementById("weight").value);
+
+        if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+          document.getElementById("result").textContent = "Please enter valid height and weight.";
+          return;
+        }
+
+        const heightInMeter = height / 100;
+        const bmi = weight / (heightInMeter * heightInMeter);
+
+        const resultElement = document.getElementById("result");
+        resultElement.textContent = `Your BMI: ${bmi.toFixed(2)}`;
+
+        let interpretation = "";
+        if (bmi < 18.5) {
+          interpretation = "Underweight";
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+          interpretation = "Normal weight";
+        } else if (bmi >= 25 && bmi < 29.9) {
+          interpretation = "Overweight";
+        } else {
+          interpretation = "Obese";
+        }
+
+        const interpretationElement = document.createElement("p");
+        interpretationElement.textContent = `Interpretation: ${interpretation}`;
+        resultElement.appendChild(interpretationElement);
+      }
+    </script>
+  </body>
+</html>
+

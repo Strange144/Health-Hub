@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+         body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: rgb(51, 50, 50);
+  color: white;
+}
+
+#cc {
+  background-color: black;
+  color: #cc5500;
+}
+
+#bu {
+  margin-left: 50px;
+}
+
+#cal {
+  float: right;
+  width: 300px;
+  padding-right: 200px;
+}
+form {
+  margin-left: 60px;
+  padding-left: 60px;
+  border-radius: 3px;
+  border-width: 2px;
+  border-color: white;
+  border-style: double;
+  margin-right: 800px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.pp {
+  padding-left: 70px;
+}
+ 
+      </style>
+    <link href="mystylec.css" rel="stylesheet" />
+    <title>calories calculator</title>
+  </head>
+  <body>
+      <a href="home.html" style="text-decoration: none;"><h1 id="cc" align="center">Calories calculator</h1></a>
+    <img src="image2.jpg" id="cal" />
+    <form>
+      <label>Age&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <input id="age" type="textbox" name="Age" /><br />
+      gender :- <label for="male">male</label>
+      <input type="radio" id="male" name="fav_language" value="male" />
+      <label for="male">female</label>
+      <input
+        type="radio"
+        id="female"
+        name="fav_language"
+        value="female"
+      /><br />
+      <label>height&nbsp;</label>
+      <input type="textbox" id="height" name="height" placeholder="cm" /><br />
+      <label>weight&nbsp;</label>
+      <input type="textbox" id="weight" name="weight" placeholder="kgs" /><br />
+      activity
+      <select id="activityLevel">
+        <option value="sedentary">Sedentary (little to no exercise)</option>
+        <option value="lightlyActive">
+          Lightly Active (light exercise/sports 1-3 days/week)
+        </option>
+        <option value="moderatelyActive">
+          Moderately Active (moderate exercise/sports 3-5 days/week)
+        </option>
+        <option value="veryActive">
+          Very Active (hard exercise/sports 6-7 days a week)
+        </option>
+        <option value="extraActive">
+          Extra Active (very hard exercise/sports, physical job, or training
+          twice a day)
+        </option></select
+      ><br />
+      <input id="bu" type="button" value="Submit" />
+      <p id="result">result:</p>
+    </form>
+    <div class="pp">
+      <p>
+        To calculate the daily calories, you need to determine the Total
+        Daily<br />
+        Energy Expenditure (TDEE) of an individual. TDEE represents the total<br />
+        number of calories a person needs to maintain their current weight
+        <br />
+        based on various factors such as age, gender, weight, height, activity
+        level,<br />
+        and weight goal. There are several equations used to estimate TDEE, but
+        one of the<br />
+        commonly used formulas is the Harris-Benedict equation. The
+        Harris-Benedict equation<br />
+        has different versions for men and women:
+      </p>
+      <h4>For men:</h4>
+      <p>
+        TDEE = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) -
+        (5.677 × age in years)
+      </p>
+
+      <h4>For women:</h4>
+      <p>
+        TDEE = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) -
+        (4.330 × age in years)
+      </p>
+      <p>
+        After calculating TDEE, you need to consider the individual's activity
+        level to adjust the calorie intake based on their lifestyle:
+      </p>
+      <ol>
+        <li>Sedentary (little to no exercise): TDEE × 1.2</li>
+        <li>
+          Lightly active (light exercise/sports 1-3 days/week): TDEE × 1.375
+        </li>
+        <li>
+          Moderately active (moderate exercise/sports 3-5 days/week): TDEE ×
+          1.55
+        </li>
+        <li>
+          Very active (hard exercise/sports 6-7 days a week): TDEE × 1.725
+        </li>
+        <li>
+          Extra active (very hard exercise/sports, physical job, or training
+          twice a day): TDEE × 1.9
+        </li>
+      </ol>
+    </div>
+    <script>
+      document.getElementById("bu").addEventListener("click", function () {
+        const age = parseFloat(document.getElementById("age").value);
+        const gender = document.querySelector(
+          'input[name="fav_language"]:checked'
+        ).value;
+        const height = parseFloat(document.getElementById("height").value);
+        const weight = parseFloat(document.getElementById("weight").value);
+        const activityLevel = document.getElementById("activityLevel").value;
+
+        let tdee;
+        if (gender === "male") {
+          tdee = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age;
+        } else if (gender === "female") {
+          tdee = 447.593 + 9.247 * weight + 3.098 * height - 4.33 * age;
+        }
+
+        if (activityLevel === "sedentary") {
+          tdee *= 1.2;
+        } else if (activityLevel === "lightlyActive") {
+          tdee *= 1.375;
+        } else if (activityLevel === "moderatelyActive") {
+          tdee *= 1.55;
+        } else if (activityLevel === "veryActive") {
+          tdee *= 1.725;
+        } else if (activityLevel === "extraActive") {
+          tdee *= 1.9;
+        }
+
+        // Display the result
+        const resultElement = document.getElementById("result");
+        resultElement.textContent = `Your estimated daily calories: ${tdee.toFixed(
+          2
+        )} calories`;
+      });
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>store</servlet-name>
+        <servlet-class>store</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>insertfood</servlet-name>
+        <servlet-class>insertfood</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>food</servlet-name>
+        <servlet-class>food</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>trucate</servlet-name>
+        <servlet-class>trucate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>store</servlet-name>
+        <url-pattern>/store.java</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>insertfood</servlet-name>
+        <url-pattern>/insertfood.java</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>food</servlet-name>
+        <url-pattern>/food.java</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>trucate</servlet-name>
+        <url-pattern>/trucate.java</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
